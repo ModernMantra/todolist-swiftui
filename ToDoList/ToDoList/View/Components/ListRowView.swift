@@ -9,20 +9,21 @@ import SwiftUI
 
 struct ListRowView: View {
     
-    let title: String
+    @State var item: ItemDataModel
     
     var body: some View {
         HStack {
-            Image(systemName: "checkmark")
-            Text(title)
+            Image(systemName: item.image)
+            Text(item.title)
         }
     }
+
 }
 
 // MARK: - Preview -
 
 struct ListRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ListRowView(title: "Hello World")
+        ListRowView(item: .init(title: "Hello", isCompleted: true))
     }
 }
